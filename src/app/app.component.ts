@@ -25,11 +25,13 @@ export class AppComponent implements OnInit {
       complete: () => console.log(`complete`),
     });
 
-    of(2, 4, 6)
+    of(1, 2, 3)
       .pipe(
-        map((x) => x * 3),
-        tap((x) => console.log('tab', x)),
-        take(3)
+        take(1),
+        tap((x) => console.log('tab pre', x)),
+        map((x) => x * 10),
+        tap((x) => console.log('tab aft', x)),
+        
       )
       .subscribe((x) => console.log(x));
   }
